@@ -68,36 +68,71 @@ public class ScoreStudent_1 {
 	        			Student std = new Student();		//이게 밖에 있다하면?
 	        			//인풋 받은 값을 Student  객체의 score 변수에 할당 -> 객체를 생성해야한다.
 	        			
-	        			//std.score = scanner.nextInt();	//직접 할당
 	        			System.out.println((i+1)+ "번째 학생 점수를 입력하세요. ");
+	        			
+	        			//std.score = scanner.nextInt();	//직접 할당
 	        			std.setScore(scanner.nextInt()); 	//이렇게도 가능
-	        			arr.add(std);
+	        			arr.add(std);		//ArrayList의 필드에 값을 할당한 객체를 ArrayList에 저장
+	        			System.out.println("입력 완료");		//입력 완료 출력 후 개행
 	        		}
             	}
                
-            } else if(selectNo == 3) {
-            	for(int i = 0; i < studentNum;i++) {		//arr.size로 돌리면? 
-            		System.out.println(arr.get(i).score);
-        		}
+            } else if(selectNo == 3) {		//점수 리스트 출력, ArrayList 각 점수가 할당된 객체가 저장, 객체 생성 후 필드의 값을 직접 출력 or getter를 통해 출력
+            	
+            	if(studentNum ==0 ) {
+            		System.out.println("학생 수를 먼저 입력하세요.");
+            	}
+            	else {
+	            	for(int i = 0; i < studentNum;i++) {		//arr.size로 돌리면?-> 별 차이 없는 듯 하다.   //ArrayList 객체를 가져와서 Student.sscore 필드의 값을 출력
+	            		System.out.print((i+1) +"번째 학생의 점수: ");
+	            		Student std = arr.get(i); // ArrayList의 get()을 사용하여 각 방의 Student 객체를 가져온다.
+	            		
+	            		//System.out.println(arr.get(i).score);		
+	            		//System.out.println(std.score);
+	            		System.out.println(std.getScore());
+	            		
+	            		//중요한 것은 객체에 저장한다는 것!!!!
+	            		//콜렉션안에 값을 넣을 때 객체를 만들어서 하는 경우가 너무너무 많다.
+	        		}	
+            	}
+            	
+            	
              
             } else if(selectNo == 4) {
             	//코드작성
-            	
-            	int maxScore = 0;
-            	int sum =0;
-            	for(int i = 0; i<arr.size();i++) {
-            		if(maxScore < arr.get(i).score) {
-            			maxScore = arr.get(i).score;
-            			
-            		}
-            		sum += arr.get(i).score;
-        		}
+            	if(studentNum == 0) {
+            		System.out.println("학생 수를 먼저 입력하세요.");
+            	}
+            	else {
+            		int maxScore = 0;		
+                	int sum =0;
+                	
+                	//1. ArrayList의 객체를 갖고 온다.
+            		//2. Student 객체의 score 필드 값을 가져와서 처리
+                	
+                	for(int i = 0; i<arr.size();i++) {
+                		Student std = arr.get(i);
+                		maxScore = (std.score > maxScore) ? std.score : maxScore;	//삼항 연산자 이렇게 사용 가능
+                		
+                		
+                		/*if(maxScore < arr.get(i).score) {
+                			maxScore = arr.get(i).score;
+                   		}*/
+                		
+                		//sum += arr.get(i).score;
+                		sum += std.score;
+                		
+                		
+                	}
+                	//출력
+                	System.out.println("최고점수 : " + maxScore);
+                	System.out.println("평균점수 : " + (float) sum / studentNum);
+            	}
             	
             	
             	
             		
-            	System.out.println("최고점수 : " + maxScore);
-            	System.out.println("평균점수 : " + (float) sum / studentNum);
+            	
          
             } else if(selectNo == 5) {
             	break;

@@ -77,7 +77,7 @@ class MemberHashSet{		//MemberArrayList를 객체화하면 ArrayList 객체가 생성된다.
 		
 		Iterator<Member> iterator = hashSet.iterator();
 		
-		if(iterator.hasNext()) {
+		while(iterator.hasNext()) {
 			Member member = (Member) iterator.next();
 			if(member.getMemberID() == memberID) {
 				hashSet.remove(member);
@@ -136,7 +136,7 @@ public class EX_MemberHashSet {
 		System.out.println("==================");
 		
 		//특정 ID를 가진 사용자 제거
-		memberhashset.removeMember(1001);
+		memberhashset.removeMember(1002);
 		memberhashset.showAllMember();
 	}
 
