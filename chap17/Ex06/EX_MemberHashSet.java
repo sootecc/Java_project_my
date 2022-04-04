@@ -84,8 +84,10 @@ class Member{	//DTO, VO: 각 계층간의 데이터를 받아서 전달해주는 클래스
 }
 
 class MemberHashSet{		//MemberArrayList를 객체화하면 ArrayList 객체가 생성된다.
+		
 	private Set<Member> hashSet;		//Set 선언: <Member> , 필드의 private (생성자, setter 를 통해서 값 할당)
-	
+		
+		//Set<Member> hashSet = new HashSet<Member>();
 		//List<Member> aList = new ArrayList<Member>();	제네릭 타입클래스 객체 생성
 		//ArrayList<Member> arrayList = new ArrayList<Member>();
 	
@@ -98,13 +100,19 @@ class MemberHashSet{		//MemberArrayList를 객체화하면 ArrayList 객체가 생성된다.
 	}										//Member 객체의 memberID 필드 값이 동일할 경우, 동일한 객체 -> hashCode, equals에서 재정의 해줬쥬?
 												
 	public boolean removeMember (int memberID) { //ArrayList에 저장된 memberID를 검색해서 해당 객체를 삭제한다.
+		//Set은 index가 존재하지 않으므로 기본 for문은 사용할 수 없다.
+		//향상된 for문을 사용할 수 있고, iterator를 사용할 수 있다.
 		
 		//iterator 사용하여 remove 
 		
 		Iterator<Member> iterator = hashSet.iterator();
 		
+		
+		
+		
+		
 		while(iterator.hasNext()) {
-			Member member = (Member) iterator.next();
+			Member member = (Member) iterator.next();	//객체를 한 번 거쳐주면 쉽네요
 			if(member.getMemberID() == memberID) {
 				hashSet.remove(member);
 				return true;
@@ -120,8 +128,11 @@ class MemberHashSet{		//MemberArrayList를 객체화하면 ArrayList 객체가 생성된다.
 		//System.out.println(arrayList);
 		Iterator<Member> iterator = hashSet.iterator();
 		while(iterator.hasNext()) {
-			System.out.println( iterator.next());
+			Member member = iterator.next();	//hashSet의 값을 가지고 온다.
+			System.out.println( member);		//hashSet의 객체를 출력, toString() 재정의 -> 필드의 값을 출력한다. 
 		}
+		
+		
 	}//ArrayList에 저장된 모든 사용자 정보를 출력하는 메소드
 	
 	public void showSize() {
