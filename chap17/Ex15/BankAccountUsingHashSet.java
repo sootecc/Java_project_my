@@ -53,7 +53,7 @@ class Account{ 	//계좌 정보를 저장하는 객체, 중요한 필드, private(캡슐화) 생성자
 	public boolean equals(Object obj) {
 		if(obj instanceof Account) {
 			Account act = (Account)obj;
-			if(this.ano == act.ano) {
+			if(this.ano.equals(act.ano)) {
 				return true;
 			}
 		}
@@ -104,7 +104,7 @@ class AccountHashSet{
 	}
 	
 	
-	public void minus(String ano, int balance) {
+	public void withdraw(String ano, int balance) {
 		Iterator<Account> itr = hashSet.iterator();
 		while(itr.hasNext()) {
 			Account act = (Account) itr.next();
@@ -165,6 +165,7 @@ public class BankAccountUsingHashSet {
 				int balance = scanner.nextInt();
 				
 				Account tempAct = new Account(ano, name, balance);
+				
 				if(actHashSet.findAccount(ano)) {
 					actHashSet.addAccount(tempAct);
 				}
@@ -196,7 +197,7 @@ public class BankAccountUsingHashSet {
 				System.out.printf("%s%s","출금할 금액을 입력하세요: ",System.lineSeparator());
 				int balance = scanner.nextInt();
 				
-				actHashSet.minus(ano, balance);
+				actHashSet.withdraw(ano, balance);
 				
 			}
 			else if(selectNo == 5) {

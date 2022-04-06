@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+//완료 시간: 
+
 class Account{ 	//계좌 정보를 저장하는 객체, 중요한 필드, private(캡슐화) 생성자(O), getter, setter		//DTO, VO <= 각 계층으로 필드의 값을 저장하고 전달 
 	
 	private String ano;		//계좌 번호
