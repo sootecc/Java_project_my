@@ -2,7 +2,7 @@ package chap17.Ex13;
 
 import java.util.Scanner;
 
-class Account{
+class Account{		//계좌 정보를 저장하는 객체, 중요한 필드, private(캡슐화) 생성자(O), getter, setter		//DTO, VO <= 각 계층으로 필드의 값을 저장하고 전달 
 	
 	private String ano;		//계좌 번호
 	private String owner; 	//계좌 주
@@ -13,6 +13,8 @@ class Account{
 		this.owner = owner;
 		this.balance = balance;
 	}
+	
+	//getter, setter
 	
 	public String getAno() {
 		return ano;
@@ -66,12 +68,12 @@ public class BankAccountUsingArray {
 			
 			private static void accountList() {
 				//코드 작성: 2. 배열에 저장된 객체를 가져와서 계좌번호, 이름, 금액을 출력
-				for(int i = 0 ; i<100; i++) {
-					try {
+				//배열의 각 방을 순회하면서 null이 아닌 경우 배열에서 객체를 꺼내서 필드의 정보를 출력
+				for(int i = 0 ; i<counter; i++) {
+					
 						System.out.print("계좌번호: "+accountArray[i].getAno()+" 이름: "+accountArray[i].getOwner()+" 금액: "+accountArray[i].getBalance());
 						System.out.println();
-					}
-					catch(NullPointerException e) {}
+					
 				}
 			}
 			
@@ -106,7 +108,7 @@ public class BankAccountUsingArray {
 				
 				Account account = null;
 				//코드 작성
-				for(int i =0 ; i<100; i++) {
+				for(int i =0 ; i<counter; i++) {
 					if(accountArray[i].getAno().equals(ano)) {
 						account = accountArray[i];
 						break;
