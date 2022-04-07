@@ -21,7 +21,6 @@ class A implements Arithmetic{
 		double c = aa/bb;
 		if(Double.isInfinite(c)){System.out.println("0으로 나눌 수 없습니다.");}
 		else{System.out.printf("합: %f, 차: %f, 곱: %f, 나누기: %f%s",aa+bb,aa-bb, aa*bb, aa/bb,System.lineSeparator());}
-		
 	}
 }
 
@@ -38,7 +37,6 @@ public class ArithmeticOperation {
 			double c = aa/bb;
 			if(Double.isInfinite(c)){System.out.println("0으로 나눌 수 없습니다.");}
 			else{System.out.printf("합: %f, 차: %f, 곱: %f, 나누기: %f%s",aa+bb,aa-bb, aa*bb, aa/bb,System.lineSeparator());}
-			
 			};
 		one.arithmeticOpr(a, b);
 		System.out.println("방법 2");
@@ -53,7 +51,6 @@ public class ArithmeticOperation {
 			double c = aa/bb;
 			if(Double.isInfinite(c)){System.out.println("0으로 나눌 수 없습니다.");}
 			else{System.out.printf("합: %f, 차: %f, 곱: %f, 나누기: %f%s",aa+bb,aa-bb, aa*bb, aa/bb,System.lineSeparator());}
-				
 			}
 		};
 		three.arithmeticOpr(a, b);
