@@ -25,7 +25,7 @@ public class RefOfClassConstructor_2 {
 		}};
 		
 		//람다식 표현
-		A a2 = (k)->new B(k);
+		A a2 = (k) -> new B(k);
 		
 		//클래스 생성자 참조
 		A a3 = B::new;			//int k가 들어가있네		//B의 두 번째 생성자 호출
