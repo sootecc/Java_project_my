@@ -2,21 +2,23 @@ package chap19.Ex03;
 
 import java.io.UnsupportedEncodingException;
 
-//EUCKR - 한국 표준, 한글 표현 전체 중 표기 가능한 것만으로 구성되어 있음. 약 11,000자 중 약 2200자 정도만 표기. 8000자는 표기 안됨
-	//영문 : 1byte
+//EUC-KR - 한국 표준, 한글 표현 전체 중 표기 가능한 것만으로 구성되어 있음. 약 11,000자 중 약 2200자 정도만 표기. 8000자는 표기 안됨
+	//영문 : 1byte			<== UTF-8로 처리
 	//한글 : 2byte
 	//웹페이지로 출력 할 때
 
-//MS949 - Microsoft사에서 개발한 한글 표기 방식 11,000자 모두 표기할 수 있다. Windows OS
-	//영문 : 1byte
+//MS-949(ANSI) - Microsoft사에서 개발한 한글 표기 방식 11,000자 모두 표기할 수 있다. Windows OS
+	//영문 : 1byte			<== UTF-8로 처리
 	//한글 : 2byte
 
 //UTF-8 : 모든 서버(Web, FTP, Mail, ... ), git, Mac  -> 가변길이
-	//영문 : 1byte
+	//영문 : 1byte			<== UTF-8로 처리
 	//한글 : 3byte
 
 //UTF-16 :  -> 고정길이
 	//영문, 한글 : 2byte
+	//BOM 2byte: 모든 나라의 식별코드
+
 
 //해당 인코딩 타입 byte 스트림으로 문자를 생성한 경우, 해당 인코딩 타입으로 문자를 조합 해야 깨지지 않는다.
 

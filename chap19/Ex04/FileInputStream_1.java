@@ -62,6 +62,12 @@ public class FileInputStream_1 {
 		while((data = is2.read()) != -1) {		//마지막 값까지 계속 순환
 			System.out.print((char)data);
 		}
+		
+		//중요: is1.read() : 1byte를 읽어들임
+		
+		//FileInputStream은 반드시 index 0번부터 읽어들임. 중간의 임의의 방에서 읽을 수 없다.
+		//FileRandomAccess를 사용해서 임의의 index에서 읽어들임
+		
 		System.out.println();
 		System.out.println();
 		System.out.println("==========================");

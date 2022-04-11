@@ -1,1 +1,4 @@
+A
+a
+
 FileInput Stream
