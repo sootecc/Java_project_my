@@ -7,7 +7,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-
+//InputStreamWriter:  byte => char, charset(MS949, UTF-8) 지정해서 파일을 출력할 수 있다.
+//OutputStreamWriter: byte => char, charset(MS949, UTF-8) 지정해서 파일을 저장할 수 있다
 
 public class OutputStreamWriter1 {
 	
@@ -16,6 +17,8 @@ public class OutputStreamWriter1 {
 		//1. FileWriter를 통해서 데이터 쓰기(Default: MS949)
 		File osw1 = new File ("./chap19/Ex08/osw1.txt");
 		File osw2 = new File ("./chap19/Ex08/osw2.txt");
+		//이클립스 내부에 저장하면 상위 문자 설정을 상속받기 때문에 외부에 파일을 만들어주면 원하는 결과를 얻을 수 있다.
+		
 		
 		try(Writer writer = new FileWriter(osw1);){
 			
@@ -39,6 +42,9 @@ public class OutputStreamWriter1 {
 			writer.flush();
 		
 		}catch(Exception e) {}
+		
+		
+		
 		
 		
 		
