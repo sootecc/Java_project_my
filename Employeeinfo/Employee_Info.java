@@ -2,6 +2,7 @@ package Employeeinfo;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -72,6 +73,22 @@ class Employee{		//사원의 정보를 담은 클래스
 		this.compRank = compRank;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Employee) {
+			this.empNo = ((Employee)obj).empNo;
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(empNo);
+	}
 	
 }
 
@@ -98,11 +115,7 @@ public class Employee_Info {
 		System.out.println("- 사번: ");
 		int empno=sc.nextInt();
 		
-		if(isEmp(empno)) {
-			System.out.println("이미 있는 사원번호입니다. 다시 생성해주세요");
-			
-		}
-		else {
+		
 		
 		System.out.println("- 이름: ");
 		String name = sc.next();
@@ -118,7 +131,7 @@ public class Employee_Info {
 		Employee newEmp = new Employee(empno, name, phone, age, dept, compRank);
 		tSet.add(newEmp);
 		System.out.println(name + " 님의 정보가 정상적으로 입력되었습니다.");
-		}
+		
 	}
 	
 	private static void EmpList() {
@@ -134,6 +147,7 @@ public class Employee_Info {
 				System.out.print(emp.getAge()+"\t"); 
 				System.out.print(emp.getDept()+"\t"); 
 				System.out.print(emp.getCompRank()+"\t"); 
+				System.out.println();
 			}
 		}
 	}

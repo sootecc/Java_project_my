@@ -29,10 +29,7 @@ public class Ex_Reader_Writer {
 
 	public static void main(String[] args) {
 
-		InputStream is;
 		InputStreamReader isr;
-		OutputStream os;
-		OutputStreamWriter osw;
 		
 		File a = new File("C:\\Temp\\a\\aaa.txt");
 		File a_1 = new File("C:\\Temp\\a\\");
@@ -81,6 +78,10 @@ public class Ex_Reader_Writer {
 			}
 			
 		}catch(Exception e) {}
+		
+		
+		
+		
 		
 		System.out.println();
 		try(InputStream	fis = new FileInputStream(b);
