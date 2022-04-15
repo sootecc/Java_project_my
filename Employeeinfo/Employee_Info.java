@@ -92,6 +92,13 @@ class Employee{		//사원의 정보를 담은 클래스
 	
 }
 
+//TreeSet: 중복된 데이터를 저장 할 수 없다. Wrapper 클래스는 재정의 되어 있다. equals(), hashCode()
+		//정렬되어서 저장 Comparable compareTo(), Comparator compare()
+		//일반 객체를 set 자료형에 저장할 때는 객체의 특정 필드가 중복 저장되지 않도록 equals(), hashCode() 재정의
+
+	//Wrapper: 기본 자료형을 객체화 시켜서 기본 자료형에는 없는 메소드가 추가. (Boolean, Byte, Character, Integer, Double, Float, Long)
+		//Comparable compareTo() : 상속해서 구현, 객체 수정. Comparator compare(): 객체 수정 없이 사용 가능. 이 재정의 되어 있다.
+
 public class Employee_Info {
 
 	private static TreeSet<Employee> tSet = new TreeSet<Employee>(new Comparator<Employee>() {
@@ -196,7 +203,7 @@ public class Employee_Info {
 		
 		while(ir.hasNext()) {
 			Employee a1 = ir.next();
-			int dbEmpno = a1.getEmpNo(); //배열의 각 방에 저장된 객체의 ano를 dbAno 변수에 할당. 
+			int dbEmpno = a1.getEmpNo(); 
 			if (dbEmpno==empno) {	
 				emp = a1; 
 				return emp;
@@ -206,21 +213,6 @@ public class Employee_Info {
 			return emp; 
 	}
 	
-	private static boolean isEmp(int empno) {
-		Employee emp = null ; 
-		//코드 작성 
-		Iterator<Employee> ir = tSet.iterator();
-		
-		while(ir.hasNext()) {
-			Employee a1 = ir.next();
-			int dbEmpno = a1.getEmpNo(); //배열의 각 방에 저장된 객체의 ano를 dbAno 변수에 할당. 
-			if (dbEmpno==empno) {	
-				return true;
-				
-			}	
-		}
-			return false; 
-	}
 	
 	
 	public static void main(String[] args) {
