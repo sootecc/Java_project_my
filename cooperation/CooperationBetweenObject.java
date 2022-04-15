@@ -178,7 +178,10 @@ public class CooperationBetweenObject {
 							}
 						}
 					}else if(secondChoice ==4 ) {
-						
+						if(s.bus ==null) {
+							System.out.println("버스에 타고 있지 않아요");
+							continue;
+						}
 						System.out.println("타고 있던 버스: "+s.bus.busName);
 						
 						for(Bus bus : busList) {
@@ -208,6 +211,10 @@ public class CooperationBetweenObject {
 							}
 						}
 					}else if(secondChoice ==6 ) {
+						if(s.subway ==null) {
+							System.out.println("지하철에 타고 있지 않아요");
+							continue;
+						}
 						System.out.println("타고 있던 지하철: "+s.subway.lineNumber);
 						for(Subway sub : subwayList) {
 							try {
