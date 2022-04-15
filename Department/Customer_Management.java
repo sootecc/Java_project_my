@@ -1,8 +1,10 @@
 package Department;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Scanner;
+import java.util.Set;
 
 /*
  	백화점의 고객 관리 프로그램. (상속과 다형성)
@@ -79,6 +81,20 @@ class Customer{		//Silver
 	}
 	
 	@Override
+	public int hashCode() {
+		return Objects.hash(this.customerID);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Customer) {
+			this.customerID = ((Customer)obj).customerID;
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 	//고객ID	고객이름	고객등급	할인률	보너스포인트비율	에이젼트ID<VIP고객>
 		return this.customerID +"	"+this.customerName+"	"+this.customerGrade+"	 1%		"+this.bonusRatio; 
@@ -150,7 +166,7 @@ public class Customer_Management {
 	
 	public static void main(String[] args) {
 		
-		ArrayList<Customer> customerList = new ArrayList<>();
+		Set<Customer> customerList = new HashSet<>();
 		Scanner sc = new Scanner(System.in);
 		
 
