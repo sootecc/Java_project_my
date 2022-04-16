@@ -162,6 +162,13 @@ public class CooperationBetweenObject {
 					System.out.println("3. 버스를 탐   4.  버스를 내림    5. 지하철을 탐  	6. 지하철을 내림.   7. 종료 ");
 					int secondChoice = sc.nextInt();
 					if(secondChoice == 3) {
+						try {						//지하철에 타고 있으면 버스에 탈 수 없게, NullPointerException
+							if(s.subway !=null) {
+								System.out.println("이미 지하철에 타고 있습니다.");
+								continue;
+							}
+						}catch(Exception e) {}
+						
 						System.out.println("몇 번 버스를 타시겠습니까?");
 						for(Bus k : busList) {
 							System.out.println(k.busName);
@@ -197,6 +204,13 @@ public class CooperationBetweenObject {
 					}
 						
 					else if(secondChoice ==5 ) {
+						try {
+							if(s.bus !=null) {
+								System.out.println("이미 버스에 타고 있습니다.");
+								continue;
+							}
+						}catch(Exception e) {}
+						
 						System.out.println("몇 번 지하철을 타시겠습니까?");
 						for(Subway k : subwayList) {
 							System.out.println(k.lineNumber);
